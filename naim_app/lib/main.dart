@@ -2,23 +2,28 @@ import 'example_candidate_model.dart';
 import 'example_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'card_request.dart';
 
-void main() {
+void main(){
+
   runApp(
     const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Example(),
-    ),
-  );
+      home: const CardInformation(),
+    )  );
 }
 
 class Example extends StatefulWidget {
+
   const Example({
     Key? key,
   }) : super(key: key);
 
   @override
   State<Example> createState() => _ExamplePageState();
+ 
 }
 
 class _ExamplePageState extends State<Example> {

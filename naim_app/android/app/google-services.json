@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "906910620858",
+    "project_id": "smart-vocab-project",
+    "storage_bucket": "smart-vocab-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906910620858:android:b3db949f765bb068c6f683",
+        "android_client_info": {
+          "package_name": "com.example.naim_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906910620858-76be9950ac0v36bdabr8m1gi3novd15b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXo8sG8wtKMoxI9FtpRf2rTugU_r5w-Vk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906910620858-76be9950ac0v36bdabr8m1gi3novd15b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

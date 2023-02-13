@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
-
 import 'example_candidate_model.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ExampleCard extends StatelessWidget {
   final ExampleVocabModel candidate;
+  // FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  // CollectionReference vocabModel_01 = FirebaseFirestore.instance.collection('vocabModel_01');
+
+  // Stream collectionStream = FirebaseFirestore.instance.collection('vocabModel_01').snapshots();
+  // Stream documentStream = FirebaseFirestore.instance.collection('vocabModel_01').doc('d6YHiDajqWrzO4Z31dVj').snapshots();
 
   const ExampleCard(
     this.candidate, {
     Key? key,
   }) : super(key: key);
+
+  // final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance.collection('vocabModel_01').snapshots(includeMetaCanges:true);
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +43,6 @@ class ExampleCard extends StatelessWidget {
           Expanded(
             child: 
             Container(
-            //     width: 100.00,
-            //     height: 100.00,
-            //     decoration: BoxDecoration(
-            //     image: DecorationImage(
-            //         image: ExactAssetImage('assets/testimage.JPG'),
-            //         fit: BoxFit.fitHeight,
-            //         ),
-            // )),
-            // Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
