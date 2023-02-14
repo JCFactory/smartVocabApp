@@ -1,19 +1,60 @@
-import 'example_candidate_model.dart';
-import 'example_card.dart';
+import 'card_template.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'card_request.dart';
+import './helper/firebase_options.dart';
+// import './helper/firebase.service.dart';
+import './model/vocab_model.dart';
 
-void main(){
-
+void main()  {
   runApp(
     const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const CardInformation(),
+      home: const Example(),
     )  );
+    // streamStaticData();
+    getDataFromFirebase();
 }
+
+// final FirebaseFirestore _fireStoreDataBase = FirebaseFirestore.instance;
+// 
+// // create Stream to data
+//   Stream<QuerySnapshot> streamStaticData(){
+//     return _fireStoreDataBase.collection('vocabData').snapshots();
+//   }
+
+// // parse data from query into json
+//  List<VocabDataModel> getAllVocabs(QuerySnapshot snapshot){
+//       final allVocabData = snapshot.docs;
+//       List<VocabDataModel> docSnapList = [];
+//       for(var docSnap in allVocabData){
+//         docSnapList.add(VocabDataModel.fromJson(docSnap.data()));
+//       }
+//       return docSnapList;
+//   } 
+
+void getDataFromFirebase() async {
+  List<VocabDataModel> list = [];
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  var db = FirebaseFirestore.instance;
+
+  // print(db.collection("vocabModel_01").get());
+  db.collection("vocabModel_01").get().then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        print(doc);
+        // VocabDataModel.fromJson(Map<String, dynamic> parsedJSON
+        // : hindi_original = parsedJSON['hindi_original'],
+        //   hindi = parsedJSON['hindi'],
+        //   english = parsedJSON['english']
+        // );
+        // list.add(VocabDataModel.fromJson(doc));
+      });
+});
+}
+
 
 class Example extends StatefulWidget {
 
@@ -29,7 +70,7 @@ class Example extends StatefulWidget {
 class _ExamplePageState extends State<Example> {
   final CardSwiperController controller = CardSwiperController();
 
-  final cards = candidates.map((candidate) => ExampleCard(candidate)).toList();
+  final cards = vocabDataModel.map((vocabDataModel) => CardTemplate(vocabDataModel)).toList();
 
   @override
   Widget build(BuildContext context) {

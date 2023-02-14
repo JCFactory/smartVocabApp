@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "906910620858",
+    "firebase_url": "https://smart-vocab-project-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "smart-vocab-project",
     "storage_bucket": "smart-vocab-project.appspot.com"
   },
@@ -29,6 +30,13 @@
             {
               "client_id": "906910620858-76be9950ac0v36bdabr8m1gi3novd15b.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "906910620858-a8qffmmh7a43hnv4gfr3ioguktdfhmv3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.naimApp"
+              }
             }
           ]
         }

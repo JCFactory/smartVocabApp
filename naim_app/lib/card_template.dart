@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import './model/vocab_model.dart';
-import './helper/firebase.service.dart';
+// import './helper/firebase.service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class CardTemplate extends StatelessWidget {
   final VocabDataModel vocabDataModel;
@@ -62,14 +63,6 @@ class CardTemplate extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Text(
-                            //   candidate.hindi_original,
-                            //   style: const TextStyle(
-                            //     color: Colors.black,
-                            //     fontWeight: FontWeight.bold,
-                            //     fontSize: 24,
-                            //   ),
-                            // ),
                             const SizedBox(height: 5),
                             Text(
                               vocabDataModel.hindi,

@@ -52,6 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '906910620858',
     projectId: 'smart-vocab-project',
     authDomain: 'smart-vocab-project.firebaseapp.com',
+    databaseURL: 'https://smart-vocab-project-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'smart-vocab-project.appspot.com',
   );
 
@@ -60,6 +61,7 @@ class DefaultFirebaseOptions {
     appId: '1:906910620858:android:b3db949f765bb068c6f683',
     messagingSenderId: '906910620858',
     projectId: 'smart-vocab-project',
+    databaseURL: 'https://smart-vocab-project-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'smart-vocab-project.appspot.com',
   );
 
@@ -68,6 +70,7 @@ class DefaultFirebaseOptions {
     appId: '1:906910620858:ios:97df338af3106440c6f683',
     messagingSenderId: '906910620858',
     projectId: 'smart-vocab-project',
+    databaseURL: 'https://smart-vocab-project-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'smart-vocab-project.appspot.com',
     iosClientId: '906910620858-a8qffmmh7a43hnv4gfr3ioguktdfhmv3.apps.googleusercontent.com',
     iosBundleId: 'com.example.naimApp',
