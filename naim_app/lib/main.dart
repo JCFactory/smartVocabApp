@@ -7,70 +7,53 @@ import './helper/firebase_options.dart';
 // import './helper/firebase.service.dart';
 import './model/vocab_model.dart';
 
-void main()  {
-  runApp(
-    const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const Example(),
-    )  );
-    // streamStaticData();
-    getDataFromFirebase();
+void main() {
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: const Example(),
+  ));
+  // streamStaticData();
+  getDataFromFirebase();
 }
 
-// final FirebaseFirestore _fireStoreDataBase = FirebaseFirestore.instance;
-// 
-// // create Stream to data
-//   Stream<QuerySnapshot> streamStaticData(){
-//     return _fireStoreDataBase.collection('vocabData').snapshots();
-//   }
-
-// // parse data from query into json
-//  List<VocabDataModel> getAllVocabs(QuerySnapshot snapshot){
-//       final allVocabData = snapshot.docs;
-//       List<VocabDataModel> docSnapList = [];
-//       for(var docSnap in allVocabData){
-//         docSnapList.add(VocabDataModel.fromJson(docSnap.data()));
-//       }
-//       return docSnapList;
-//   } 
+List<VocabDataModel> list = [];
 
 void getDataFromFirebase() async {
-  List<VocabDataModel> list = [];
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   var db = FirebaseFirestore.instance;
 
+  print(db.collection('vocabModel_01').get());
+
   // print(db.collection("vocabModel_01").get());
   db.collection("vocabModel_01").get().then((QuerySnapshot querySnapshot) {
-      querySnapshot.docs.forEach((doc) {
-        print(doc);
-        // VocabDataModel.fromJson(Map<String, dynamic> parsedJSON
-        // : hindi_original = parsedJSON['hindi_original'],
-        //   hindi = parsedJSON['hindi'],
-        //   english = parsedJSON['english']
-        // );
-        // list.add(VocabDataModel.fromJson(doc));
-      });
-});
+    querySnapshot.docs.forEach((doc) {
+      print(doc.get("english"));
+
+      list.add(VocabDataModel(
+          hindi_original: doc.get("hindi_original"),
+          hindi: doc.get("hindi"),
+          english: doc.get("english"),
+          color: const [Color(0xFFFF3868), Color(0xFFFFB49A)]));
+      print(list);
+    });
+  });
 }
 
-
 class Example extends StatefulWidget {
-
   const Example({
     Key? key,
   }) : super(key: key);
 
   @override
   State<Example> createState() => _ExamplePageState();
- 
 }
 
 class _ExamplePageState extends State<Example> {
   final CardSwiperController controller = CardSwiperController();
 
-  final cards = vocabDataModel.map((vocabDataModel) => CardTemplate(vocabDataModel)).toList();
+  final cards = vocabDataModel.map((list) => CardTemplate(list)).toList();
 
   @override
   Widget build(BuildContext context) {

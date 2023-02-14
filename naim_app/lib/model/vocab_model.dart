@@ -15,12 +15,12 @@ class VocabDataModel {
     // required this.icon, // TODO: change dynamically to categories
   });
 
-  // VocabDataModel.fromJson(Map<String, dynamic> parsedJSON
-  //       : hindi_original = parsedJSON['hindi_original'],
-  //         hindi = parsedJSON['hindi'],
-  //         english = parsedJSON['english']
-  // );
- }    
+  VocabDataModel.fromJson(Map<String, dynamic> parsedJSON)
+      : hindi_original = parsedJSON['hindi_original'],
+        hindi = parsedJSON['hindi'],
+        english = parsedJSON['english'],
+        color = parsedJSON[List<Color>];
+}
 
 final List<VocabDataModel> vocabDataModel = [
   VocabDataModel(
