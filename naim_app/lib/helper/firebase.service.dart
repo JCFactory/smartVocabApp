@@ -1,67 +1,45 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
-// import '../../model/vocab_model.dart';
-// import 'firebase_options.dart';
-// import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../../model/vocab_model.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-// class FirebaseServices {
-//   void main() {
-//     initializeFirebaseDB();
-//   }
+class FirebaseServices {
+  final FirebaseFirestore _fireStoreDataBase = FirebaseFirestore.instance;
 
-// // initialize db
-//   void initializeFirebaseDB() async {
-//     await Firebase.initializeApp(
-//       options: DefaultFirebaseOptions.currentPlatform,
-//     );
-//     print("success");
-//   }
+  void main() {
+    print("firebase services work");
+    initializeFirebaseDB();
+  }
 
-// // connect to db
-//   final FirebaseFirestore _fireStoreDataBase = FirebaseFirestore.instance;
-//   final List<VocabDataModel> list = [];
+// initialize db
+  void initializeFirebaseDB() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    print("success");
+  }
 
-// // create stream
-//   Stream<DocumentSnapshot> streamVocabData() {
-//     // return _fireStoreDataBase
-//     //     .collection('vocabModel_01').get();
-//   }
+// create stream
+  Stream<QuerySnapshot> streamVocabData() {
+    return _fireStoreDataBase
+        .collection('vocabModel_01').snapshots();
+  }
 
-//   List<VocabDataModel> getAllVocabDocs(QuerySnapshot snapshot) {
-//     final allVocabDocs = snapshot.docs;
-//     List<VocabDataModel> docSnapList = [];
-//     for (var docSnap in allVocabDocs) {
-//       print(docSnap.data());
-//       // docSnapList.add(VocabDataModel.fromJson(docSnap.data()));
-//     }
-//     return docSnapList;
-//   }
+  //  VocabDataModel parsingVocab(QuerySnapshot snapshot){
+  //   final data = snapshot.docs.first;
+  //   return VocabDataModel.fromJson(data.data());
+  // }
 
-//   // List<VocabDataModel> getAllVocabDocs(DocumentSnapshot snapshot){
-//   //     FirebaseFirestore.instance
-//   //       .collection('vocabModel_01')
-//   //       .get()
-//   //       .then((QuerySnapshot querySnapshot) {
-//   //           querySnapshot.docs.forEach((doc) {
-//   //               print(doc);
-//   //           });
-//   // });
+  // List<VocabDataModel> getAllVocabDocs(QuerySnapshot snapshot){
+  //   final allVocabDocs = snapshot.docs;
+  //   List<VocabDataModel> docSnapList = [];
 
-//   //   List<VocabDataModel> docSnapList = [];
-//   //   for(var docSnap in allVocabDocs){
-//   //     docSnapList.add(VocabDataModel.fromJson(docSnap.data()));
-//   //   }
-//   //   return docSnapList;
+  //     for(var docSnap in allVocabDocs){
+  //       print(docSnap);
+  //       docSnapList.add(VocabDataModel.fromJson(docSnap.data()));
+  //     }
+  //     return docSnapList;
+  // }
 
-//   // void main(){
-//   //   FirebaseFirestore.instance
-//   //   .collection('vocabModel_01')
-//   //   .get()
-//   //   .then((QuerySnapshot querySnapshot) {
-//   //       querySnapshot.docs.forEach((doc) {
-//   //           print(hindi_original);
-//   //           print(hindi);
-//   //           print(english);
-//   //       });
-//   //   });
-//   // }
-// }
+// var map = Map<String, dynamic>.from(snap.snapshot.value as Map<dynamic, dynamic>);
+}
