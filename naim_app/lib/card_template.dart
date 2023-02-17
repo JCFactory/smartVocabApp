@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class CardTemplate extends StatelessWidget {
-  final VocabDataModel vocabDataModel;
+  final VocabDataModel cardDataModel;
 
   const CardTemplate(
-    this.vocabDataModel, {
+    this.cardDataModel, {
     Key? key,
   }) : super(key: key);
 
@@ -47,7 +47,7 @@ class CardTemplate extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    vocabDataModel.hindi_original,
+                    cardDataModel.hindi_original,
                     style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -65,7 +65,7 @@ class CardTemplate extends StatelessWidget {
               children: [
                 const SizedBox(height: 5),
                 Text(
-                  vocabDataModel.hindi,
+                  cardDataModel.hindi,
                   style: const TextStyle(
                     color: Colors.blue,
                     fontSize: 20,
@@ -73,7 +73,7 @@ class CardTemplate extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  vocabDataModel.english,
+                  cardDataModel.english,
                   style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 20,
