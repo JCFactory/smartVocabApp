@@ -2,6 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../model/vocab_model.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import '../card_template.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:firebase_core/firebase_core.dart';
+import './firebase_options.dart';
+import 'dart:async';
+import '.././model/vocab_model.dart';
+import 'dart:convert';
+
 
 class FirebaseServices {
   final FirebaseFirestore _fireStoreDataBase = FirebaseFirestore.instance;
@@ -10,6 +19,11 @@ class FirebaseServices {
     print("firebase services work");
     initializeFirebaseDB();
   }
+
+
+
+
+
 
 // initialize db
   void initializeFirebaseDB() async {

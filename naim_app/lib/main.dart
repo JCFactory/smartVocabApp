@@ -9,11 +9,41 @@ import 'dart:async';
 import './model/vocab_model.dart';
 import 'dart:convert';
 
+List<VocabDataModel> myList = [
+    VocabDataModel(
+    hindi_original: 'मैं चाहता हूं कि आप',
+    hindi: 'main chaahata hoon ki aap',
+    english: 'i like you too',
+    // icon: 'heart',
+    // color: const [Color(0xFFFF3868), Color(0xFFFFB49A)],
+  ),
+  VocabDataModel(
+    hindi_original: 'हां आप क्या चाहते है',
+    hindi: 'haan aap kya chaahate hai',
+    english: 'yes what do you want',
+    // icon: 'heart',
+    // color: const [Color(0xFF736EFE), Color(0xFF62E4EC)],
+  ),
+  VocabDataModel(
+    hindi_original: 'मरेको आप बोहोत पसंद हूँ',
+    hindi: 'mereko ap bohot pasand hoo',
+    english: 'i like you very much',
+    // icon: 'heart',
+    // color: const [Color(0xFF2F80ED), Color(0xFF56CCF2)],
+  ),
+  ];
+
+
 void main() async {
   await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
   print('-- main: Firebase.initializeApp');
+    Future<List<VocabDataModel>> _futureOfList = getData();
+    List<VocabDataModel> list = await _futureOfList ;
+    print(list);
+    myList = list;
+
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Example(),
@@ -21,45 +51,11 @@ void main() async {
 
 }
 
-class Example extends StatefulWidget {
- const Example({
-    Key? key,
-  }) : super(key: key);
-   @override
-  State<Example> createState() => _ExamplePageState();
-}
-
-class _ExamplePageState extends State<Example> {
-  final CardSwiperController controller = CardSwiperController();
-
-  final List<VocabDataModel> myList = [
-  //   VocabDataModel(
-  //   hindi_original: 'मैं चाहता हूं कि आप',
-  //   hindi: 'main chaahata hoon ki aap',
-  //   english: 'i like you too',
-  //   // icon: 'heart',
-  //   // color: const [Color(0xFFFF3868), Color(0xFFFFB49A)],
-  // ),
-  // VocabDataModel(
-  //   hindi_original: 'हां आप क्या चाहते है',
-  //   hindi: 'haan aap kya chaahate hai',
-  //   english: 'yes what do you want',
-  //   // icon: 'heart',
-  //   // color: const [Color(0xFF736EFE), Color(0xFF62E4EC)],
-  // ),
-  // VocabDataModel(
-  //   hindi_original: 'मरेको आप बोहोत पसंद हूँ',
-  //   hindi: 'mereko ap bohot pasand hoo',
-  //   english: 'i like you very much',
-  //   // icon: 'heart',
-  //   // color: const [Color(0xFF2F80ED), Color(0xFF56CCF2)],
-  // ),
-  ];
-
   CollectionReference _collectionRef =
     FirebaseFirestore.instance.collection('vocabModel_01');
 
-  Future<void> getData() async {
+  
+  Future<List<VocabDataModel>> getData() async {
     // Get docs from collection reference
     QuerySnapshot querySnapshot = await _collectionRef.get();
     final allBPDocs = querySnapshot.docs;
@@ -68,15 +64,26 @@ class _ExamplePageState extends State<Example> {
         for(var docSnap in allBPDocs){
           docSnapList.add(VocabDataModel.fromJson(docSnap.data() as Map<String, dynamic>));
         }
-    myList.addAll(docSnapList);
+    myList = (docSnapList);
+    return docSnapList;
   }
 
+class Example extends StatefulWidget {
+ const Example({
+    Key? key, 
+  }) : super(key: key);
+   @override
+  State<Example> createState() => _ExamplePageState();
+}
+
+class _ExamplePageState extends State<Example> {
+  final CardSwiperController controller = CardSwiperController();
 
  @override
   Widget build(BuildContext context) {    
-    getData();
-    final cards = this.myList.map((dataModel) => CardTemplate(dataModel)).toList();
-    
+   
+    final cards = myList.map((dataModel) => CardTemplate(dataModel)).toList();
+
       if(myList.isNotEmpty){
         return Scaffold(
             body: SafeArea(
