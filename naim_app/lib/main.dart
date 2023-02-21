@@ -4,6 +4,7 @@ import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import './helper/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import './helper/firebase.service.dart';
 import 'dart:async';
 import './model/vocab_model.dart';
@@ -34,21 +35,19 @@ List<VocabDataModel> myList = [
   ];
 
 
-void main() async {
-  await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-  print('-- main: Firebase.initializeApp');
+Future<void> main() async {
+   WidgetsFlutterBinding.ensureInitialized();
+   await Firebase.initializeApp(options: 
+   DefaultFirebaseOptions.currentPlatform);
+   print('-- main: Firebase.initializeApp');
     Future<List<VocabDataModel>> _futureOfList = getData();
     List<VocabDataModel> list = await _futureOfList ;
-    print(list);
     myList = list;
 
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Example(),
   ));
-
 }
 
   CollectionReference _collectionRef =
@@ -79,6 +78,16 @@ class Example extends StatefulWidget {
 class _ExamplePageState extends State<Example> {
   final CardSwiperController controller = CardSwiperController();
 
+//   Future<void> _showMyDialog() async {
+//       return showDialog<void>(
+//         context: context,
+//         barrierDismissible: false, // user must tap button!
+//         builder: (BuildContext context) {
+          
+//         },
+//       );
+// }
+
  @override
   Widget build(BuildContext context) {    
    
@@ -86,10 +95,41 @@ class _ExamplePageState extends State<Example> {
 
       if(myList.isNotEmpty){
         return Scaffold(
+            appBar: AppBar(
+              title: const Text('Naim Vocab App'),
+              backgroundColor: Color(0xfff6c800),
+              actions: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.add_alert),
+                  onPressed: () => 
+                    showDialog(
+                            context: context,
+                            builder: (context){
+                              return  AlertDialog(
+                                  title: const Text('AlertDialog Title'),
+                                  content: SingleChildScrollView(
+                                    child: ListBody(
+                                      children: const <Widget>[
+                                        Text('This is a demo alert dialog.'), // todo: display all learned vocabulary and the ones which were not learned (make two lists)
+                                        Text('Would you like to approve of this message?'),
+                                      ],
+                                    ),
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: const Text('Approve'),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                );  
+                        }
+                    ),               
+                )],),
             body: SafeArea(
               child: Column (
                 children: [
-                  // Text("hindi ${data['hindi']} english ${data['english']}"),
                   Flexible(
                     child: CardSwiper(
                       controller: controller,
@@ -106,22 +146,27 @@ class _ExamplePageState extends State<Example> {
                         FloatingActionButton(
                           onPressed: controller.swipe,
                           child: const Icon(Icons.rotate_right),
+                          backgroundColor: Color(0xfff6c800),
                         ),
                         FloatingActionButton(
                           onPressed: controller.swipeLeft,
                           child: const Icon(Icons.keyboard_arrow_left),
+                          backgroundColor: Color(0xfff6c800),
                         ),
                         FloatingActionButton(
                           onPressed: controller.swipeRight,
                           child: const Icon(Icons.keyboard_arrow_right),
+                          backgroundColor: Color(0xfff6c800),
                         ),
                         FloatingActionButton(
                           onPressed: controller.swipeTop,
                           child: const Icon(Icons.keyboard_arrow_up),
+                          backgroundColor: Color(0xfff6c800),
                         ),
                         FloatingActionButton(
                           onPressed: controller.swipeBottom,
                           child: const Icon(Icons.keyboard_arrow_down),
+                          backgroundColor: Color(0xfff6c800),
                         ),
                       ],
                     ),

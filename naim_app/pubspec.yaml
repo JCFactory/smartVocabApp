@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   intl: ^0.17.0
   flutter_card_swiper: ^1.2.0
-  cloud_firestore: ^4.3.2
+  cloud_firestore: ^4.4.2
   firebase_core: ^2.5.0
 
 dev_dependencies:
@@ -78,6 +78,18 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  # fonts:
+  #   - family: Raleway
+  #     fonts:
+  #       - asset: fonts/Raleway-Regular.ttf
+  #       - asset: fonts/Raleway-Italic.ttf
+  #         style: italic
+  #   - family: RobotoMono
+  #     fonts:
+  #       - asset: fonts/RobotoMono-Regular.ttf
+  #       - asset: fonts/RobotoMono-Bold.ttf
+  #         weight: 700
+
   # fonts:
   #   - family: Schyler
   #     fonts:
