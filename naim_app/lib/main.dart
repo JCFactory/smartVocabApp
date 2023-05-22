@@ -10,62 +10,13 @@ import 'dart:async';
 import './model/vocab_model.dart';
 import 'dart:convert';
 
-List<VocabDataModel> myList = [
-    VocabDataModel(
-    hindi_original: 'मैं चाहता हूं कि आप',
-    hindi: 'main chaahata hoon ki aap',
-    english: 'i like you too',
-    // icon: 'heart',
-    // color: const [Color(0xFFFF3868), Color(0xFFFFB49A)],
-  ),
-  VocabDataModel(
-    hindi_original: 'हां आप क्या चाहते है',
-    hindi: 'haan aap kya chaahate hai',
-    english: 'yes what do you want',
-    // icon: 'heart',
-    // color: const [Color(0xFF736EFE), Color(0xFF62E4EC)],
-  ),
-  VocabDataModel(
-    hindi_original: 'मरेको आप बोहोत पसंद हूँ',
-    hindi: 'mereko ap bohot pasand hoo',
-    english: 'i like you very much',
-    // icon: 'heart',
-    // color: const [Color(0xFF2F80ED), Color(0xFF56CCF2)],
-  ),
-  ];
-
-
-Future<void> main() async {
+ main() {
    WidgetsFlutterBinding.ensureInitialized();
-   await Firebase.initializeApp(options: 
-   DefaultFirebaseOptions.currentPlatform);
-   print('-- main: Firebase.initializeApp');
-    Future<List<VocabDataModel>> _futureOfList = getData();
-    List<VocabDataModel> list = await _futureOfList ;
-    myList = list;
-
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Example(),
   ));
 }
-
-  CollectionReference _collectionRef =
-    FirebaseFirestore.instance.collection('vocabModel_01');
-
-  
-  Future<List<VocabDataModel>> getData() async {
-    // Get docs from collection reference
-    QuerySnapshot querySnapshot = await _collectionRef.get();
-    final allBPDocs = querySnapshot.docs;
-
-    List<VocabDataModel> docSnapList = [];
-        for(var docSnap in allBPDocs){
-          docSnapList.add(VocabDataModel.fromJson(docSnap.data() as Map<String, dynamic>));
-        }
-    myList = (docSnapList);
-    return docSnapList;
-  }
 
 class Example extends StatefulWidget {
  const Example({
@@ -78,16 +29,6 @@ class Example extends StatefulWidget {
 class _ExamplePageState extends State<Example> {
   final CardSwiperController controller = CardSwiperController();
 
-//   Future<void> _showMyDialog() async {
-//       return showDialog<void>(
-//         context: context,
-//         barrierDismissible: false, // user must tap button!
-//         builder: (BuildContext context) {
-          
-//         },
-//       );
-// }
-
  @override
   Widget build(BuildContext context) {    
    
@@ -96,7 +37,7 @@ class _ExamplePageState extends State<Example> {
       if(myList.isNotEmpty){
         return Scaffold(
             appBar: AppBar(
-              title: const Text('Naim Vocab App'),
+              title: const Text('ScienTinder'),
               backgroundColor: Color(0xfff6c800),
               actions: <Widget>[
                 IconButton(

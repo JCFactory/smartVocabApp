@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import './model/vocab_model.dart';
-// import './helper/firebase.service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -38,24 +37,27 @@ class CardTemplate extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: const [Color(0xFFFF3868), Color(0xFFFFB49A)],
+                  colors: cardDataModel.color,
                 ),
               ),
               alignment: Alignment.center,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    cardDataModel.hindi_original,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
+              child: ListView.builder(
+                    itemCount: cardDataModel.hindi_original.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          Text(
+                            cardDataModel.hindi_original[index],
+                              style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
-                ],
-              ),
             ),
           ),
           Padding(
