@@ -42,12 +42,12 @@ class CardTemplate extends StatelessWidget {
               ),
               alignment: Alignment.center,
               child: ListView.builder(
-                    itemCount: cardDataModel.hindi_original.length,
+                    itemCount: cardDataModel.synonym_list.length,
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
                           Text(
-                            cardDataModel.hindi_original[index],
+                            cardDataModel.synonym_list[index],
                               style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -67,7 +67,7 @@ class CardTemplate extends StatelessWidget {
               children: [
                 const SizedBox(height: 5),
                 Text(
-                  cardDataModel.hindi,
+                  cardDataModel.topic,
                   style: const TextStyle(
                     color: Colors.blue,
                     fontSize: 20,
@@ -75,18 +75,19 @@ class CardTemplate extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  cardDataModel.english,
+                  cardDataModel.explanation,
                   style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 20,
                   ),
                 ),
                 const SizedBox(height: 5),
-                Icon(
-                  Icons.favorite,
-                  color: Colors.pink,
-                  size: 32.0,
-                ),
+                cardDataModel.icon
+                // Icon(
+                //   cardDataModel.icon,
+                //   color: Colors.pink,
+                //   size: 32.0,
+                // ),
               ],
             ),
           ),

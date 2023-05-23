@@ -1,14 +1,7 @@
 import 'card_template.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import './helper/firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
-import './helper/firebase.service.dart';
-import 'dart:async';
 import './model/vocab_model.dart';
-import 'dart:convert';
 
  main() {
    WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +30,7 @@ class _ExamplePageState extends State<Example> {
       if(myList.isNotEmpty){
         return Scaffold(
             appBar: AppBar(
-              title: const Text('ScienTinder'),
+              title: const Text('ScienTastic'),
               backgroundColor: Color(0xfff6c800),
               actions: <Widget>[
                 IconButton(
