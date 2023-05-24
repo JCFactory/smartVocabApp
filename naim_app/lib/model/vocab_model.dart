@@ -56,7 +56,7 @@ List<VocabDataModel> myList = [
     topic: 'EXAMPLE',
     explanation: 'give an example',
     icon: Icon(Icons.tips_and_updates, color: Colors.green, size: 32.0),
-    color: const [Color(0xFF736EFE), Color(0xFF62E4EC)],
+    color: const [Color(0xFFFFD54F), Color(0xFFFF6F00)],
   ),
   VocabDataModel(
     synonym_list: ['however', 'whereas', 'but', 'otherwise', 'Unlike the other, ...', 
@@ -65,7 +65,7 @@ List<VocabDataModel> myList = [
     topic: 'CONTRAST / DIFFERENCE',
     explanation: 'explain the difference of two things',
     icon: Icon(Icons.contrast, color: Colors.pink, size: 32.0),
-    color: const [Color(0xFF2F80ED), Color(0xFF56CCF2)],
+    color: const [Color(0xFFB2DFDB), Color(0xFF00695C)],
   ),           
   VocabDataModel(
     synonym_list: ['Although', 'Even though', 'Though', 'Despite', 'In spite of', 
@@ -73,7 +73,7 @@ List<VocabDataModel> myList = [
     topic: 'UNEXPECTEDNESS',
     explanation: 'express the suprise',
     icon: Icon(Icons.sunny, color: Colors.yellow, size: 32.0),
-    color: const [Color(0xFF2F80ED), Color(0xFF56CCF2)],
+    color: const [Color(0xFFF4FF81), Color(0XFFAEEA00)],
   ),
   VocabDataModel(
     synonym_list: ['Remarkably,', 'In particular,', 'More strikingly', 'In these settings', 
@@ -81,7 +81,7 @@ List<VocabDataModel> myList = [
     topic: 'EMPHASIS',
     explanation: 'highlight some important fact',
     icon: Icon(Icons.electric_bolt, color: Colors.black, size: 32.0),
-    color: const [Color(0xFF2F80ED), Color(0xFF56CCF2)],
+    color: const [Color(0xFF56CCF2), Color(0xFF2F80ED)],
   ),
   VocabDataModel(
     synonym_list: ['Due to (the fact that),', 'on account of (the fact that),', 
@@ -89,7 +89,7 @@ List<VocabDataModel> myList = [
     topic: 'CAUSE',
     explanation: 'explain why something is happening',
     icon: Icon(Icons.account_tree, color: Colors.green, size: 32.0),
-    color: const [Color(0xFF2F80ED), Color(0xFF56CCF2)],
+    color: const [Color(0xFFA5D6A7), Color(0xFF1B5E20)],
   ),
   VocabDataModel(
     synonym_list: ['Therefore', 'consequently', 
@@ -98,7 +98,7 @@ List<VocabDataModel> myList = [
     topic: 'RESULTS',
     explanation: 'explain the results of your experiment',
     icon: Icon(Icons.flag_circle, color: Colors.pink, size: 32.0),
-    color: const [Color(0xFF2F80ED), Color(0xFF56CCF2)],
+    color: const [Color(0xFFbd1313), Color(0xFF531515)],
   ),
   VocabDataModel(
     synonym_list: ['XYZ is different from that seen in ABC. In ABC, the total number of...',
@@ -121,7 +121,7 @@ List<VocabDataModel> myList = [
     topic: 'RISKS / POTENTIAL PITFALLS',
     explanation: 'explain the possible risks and preventive actions',
     icon: Icon(Icons.cookie, color: Colors.orange, size: 32.0),
-    color: const [Color(0xFF2F80ED), Color(0xFF56CCF2)],
+    color: const [Color(0xFFF48FB1), Color(0xFF880E4F)],
   ),
    VocabDataModel(
     synonym_list: ['XYZ have been broadly investigated on...', 'Although intuitive and functionally demonstrated in ... models',
@@ -131,7 +131,7 @@ List<VocabDataModel> myList = [
     topic: 'INTRODUCTION',
     explanation: 'introduce your topic and show the importance',
     icon: Icon(Icons.psychology, color: Colors.orange, size: 32.0),
-    color: const [Color(0xFF2F80ED), Color(0xFF56CCF2)],
+    color: const [Color(0xFF2F80ED), Color(0xFF880E4F)],
   ),
   VocabDataModel(
     synonym_list: ['essential', 'needed', 'mandatory', 'compulsory', 

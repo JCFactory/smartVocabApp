@@ -83,11 +83,6 @@ class CardTemplate extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 cardDataModel.icon
-                // Icon(
-                //   cardDataModel.icon,
-                //   color: Colors.pink,
-                //   size: 32.0,
-                // ),
               ],
             ),
           ),
