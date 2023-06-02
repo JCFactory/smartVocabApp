@@ -34,24 +34,25 @@ class _ExamplePageState extends State<Example> {
               backgroundColor: Color(0xfff6c800),
               actions: <Widget>[
                 IconButton(
-                  icon: const Icon(Icons.add_alert),
+                  icon: const Icon(Icons.info),
                   onPressed: () => 
                     showDialog(
                             context: context,
                             builder: (context){
                               return  AlertDialog(
-                                  title: const Text('AlertDialog Title'),
+                                  title: const Text('Disclaimer'),
                                   content: SingleChildScrollView(
                                     child: ListBody(
                                       children: const <Widget>[
-                                        Text('This is a demo alert dialog.'), // todo: display all learned vocabulary and the ones which were not learned (make two lists)
-                                        Text('Would you like to approve of this message?'),
+                                        Text('This application includes some expressions from the following book:'), 
+                                        Text('Science research writing for non-native speakers of English (Hilary Glasman-Deal, 2009)'),
+                                        Text('ISBN-13: 978-1848163102'),
                                       ],
                                     ),
                                   ),
                                   actions: <Widget>[
                                     TextButton(
-                                      child: const Text('Approve'),
+                                      child: const Text('OK'),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
