@@ -42,7 +42,7 @@ class VocabDataModel {
 
 List<VocabDataModel> myList = [
   VocabDataModel(
-    synonym_list: ['in addition', 
+    synonym_list: ['in addition (to that)', 
     'moreover', 'furthermore', 'apart from that/which','Not only, but also...', 
     'Similarly,...', 'Notably,...', 'also', 'secondly', 'In the second place',
     'What is more', 'Specifically,...', 'Besides (more powerful)'],
@@ -76,8 +76,8 @@ List<VocabDataModel> myList = [
     color: const [Color(0xFFF4FF81), Color(0XFFAEEA00)],
   ),
   VocabDataModel(
-    synonym_list: ['Remarkably,', 'In particular,', 'More strikingly', 'In these settings', 
-    'As a specific prerequisite to this grant, '],
+    synonym_list: ['Remarkably,', 'In particular,', 'Strikingly / More strikingly', 'In these settings', 
+    'As a specific prerequisite to this grant,', 'Of note,...'],
     topic: 'EMPHASIS',
     explanation: 'highlight some important fact',
     icon: Icon(Icons.electric_bolt, color: Colors.black, size: 32.0),
@@ -92,7 +92,7 @@ List<VocabDataModel> myList = [
     color: const [Color(0xFFA5D6A7), Color(0xFF1B5E20)],
   ),
   VocabDataModel(
-    synonym_list: ['Therefore', 'consequently', 
+    synonym_list: ['Therefore', 'consequently', 'thereby', 
     'hence', 'thus', 'In the future, (we hope)', 'The present study demonstrated that.../the utility of...', 
     'as a result of which', 'which is why', 'so (between two sentences, not at the start)', 'if X then Y'],
     topic: 'RESULTS',
@@ -141,6 +141,36 @@ List<VocabDataModel> myList = [
     explanation: 'some synonyms',
     icon: Icon(Icons.link, color: Colors.red, size: 32.0),
     color: const [Color(0xFF2F80ED), Color(0xFF56CCF2)],
+  ),
+  VocabDataModel(
+    synonym_list: ['Altogether, state-of-the-art data currently point to...', 
+    'As general preliminary work, we have a long standing experience in...', 
+    'To this end, XYZ have been developed and previously published...',
+    ],
+    topic: 'PHRASES',
+    explanation: 'some useful phrases',
+    icon: Icon(Icons.auto_awesome, color: Colors.red, size: 32.0),
+    color: const [Color(0xFFF8BBD0), Color(0xFFAD1457)],
+  ),
+   VocabDataModel(
+    synonym_list: ['As a specific prerequeisite to this grant, XYZ have been collected / prepared...', 
+    'Preliminary results of ... carried out in preparation for this proposal.', 
+    'To get a deeper insight into..., XYZ have been developed and optimized.',
+    ],
+    topic: 'PHRASES',
+    explanation: 'some useful phrases',
+    icon: Icon(Icons.auto_awesome, color: Colors.red, size: 32.0),
+    color: const [Color(0xFFF8BBD0), Color(0xFFAD1457)],
+  ),
+   VocabDataModel(
+    synonym_list: ['Thit is the first proof of principle, that...', 
+    'We have previously shown that...', 
+    'The results of these ... were also successfully reproduced...',
+    ],
+    topic: 'PHRASES',
+    explanation: 'some useful phrases',
+    icon: Icon(Icons.auto_awesome, color: Colors.red, size: 32.0),
+    color: const [Color(0xFFF8BBD0), Color(0xFFAD1457)],
   ),
   ];
 
