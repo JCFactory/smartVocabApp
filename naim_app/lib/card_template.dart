@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
+
 import './model/vocab_model.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 class CardTemplate extends StatelessWidget {
   final VocabDataModel cardDataModel;
 
   const CardTemplate(
     this.cardDataModel, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(10),
+        ),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey.withValues(alpha: 0.2),
             spreadRadius: 3,
             blurRadius: 7,
             offset: const Offset(0, 3),
-          )
+          ),
         ],
       ),
       alignment: Alignment.center,
@@ -33,6 +34,7 @@ class CardTemplate extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
+              width: double.infinity,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -42,30 +44,33 @@ class CardTemplate extends StatelessWidget {
               ),
               alignment: Alignment.center,
               child: ListView.builder(
-                    itemCount: cardDataModel.synonym_list.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Text(
-                            cardDataModel.synonym_list[index],
-                              style: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              ),
-                          ),
-                        ],
-                      );
-                    },
-                  ),
+                padding: const EdgeInsets.all(16),
+                itemCount: cardDataModel.synonymList.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6),
+                    child: Text(
+                      cardDataModel.synonymList[index],
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ),
+
           Padding(
             padding: const EdgeInsets.all(24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 5),
+
                 Text(
                   cardDataModel.topic,
                   style: const TextStyle(
@@ -73,7 +78,9 @@ class CardTemplate extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
+
                 const SizedBox(height: 5),
+
                 Text(
                   cardDataModel.explanation,
                   style: const TextStyle(
@@ -81,8 +88,10 @@ class CardTemplate extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
+
                 const SizedBox(height: 5),
-                cardDataModel.icon
+
+                cardDataModel.icon,
               ],
             ),
           ),

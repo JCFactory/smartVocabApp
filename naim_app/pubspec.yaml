@@ -12,11 +12,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_card_swiper: ^1.2.0
+  flutter_card_swiper: ^7.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true
